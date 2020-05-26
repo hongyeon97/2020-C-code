@@ -1,17 +1,21 @@
-#define _CRT_SECURE_NO_WARNINGS   
 #include <stdio.h> 
+#include <conio.h> 
 
 int main(void)
 {
-	char line[101]; //char *line 으로는 오류발생
+	char ch;
 
-	printf("입력을 종료하려면 새로운 행에서 (ctrl + Z)를 누르십시요.\n");
-	while (gets(line))
-		puts(line);
-	printf("\n");
+	printf("문자를 계속 입력하고 Enter를 누르면 >>\n");
+	while ((ch = getchar()) != 'q')
+		putchar(ch);
 
-	while (gets_s(line, 101))
-		puts(line);
+	printf("\n문자를 누를 때마다 두 번 출력 >>\n");
+	while ((ch = _getche()) != 'q')
+		putchar(ch);
+
+	printf("\n문자를 누르면 한 번 출력 >>\n");
+	while ((ch = _getch()) != 'q')
+		_putch(ch);
 	printf("\n");
 
 	return 0;
